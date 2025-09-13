@@ -2,10 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Spartan Bites - Home Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spartan Bites</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar container */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      border: 2px solid purple; /* matches your screenshot */
+      background-color: white;
+    }
+
+    /* Logo section */
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px; /* adjust to your logo size */
+      margin-right: 10px;
+    }
+
+    .logo span {
+      font-size: 22px;
+      font-weight: bold;
+      color: #004488;
+    }
+
+    /* Navigation links */
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #004488;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      color: #ffaa00;
+    }
+  </style>
 </head>
 <body>
-  <h1>Spartan Bites</h1>
-  <img src="Spartan_Bites_Logo_Clear.png" alt="Spartan Bites Logo">
+
+  <header class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="logo.png" alt="Spartan Bites Logo"> <!-- replace with your logo file -->
+      <span>SPARTAN BITES</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Menu</a>
+      <a href="#">Information</a>
+      <a href="#">Order Now</a>
+      <a href="#">Join Waitlist</a>
+    </nav>
+  </header>
+
 </body>
 </html>
