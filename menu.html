@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spartan Bites - Home</title>
-  
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spartan Bites - Menu</title>
 
+  <!-- Global stylesheet (navbar, footer, brand colors) -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Menu-specific stylesheet (only affects this page) -->
+  <link rel="stylesheet" href="menu.css" />
 </head>
-<body>
 
+<!-- Scoped CSS class ensures menu styles don’t affect other pages -->
+<body class="menu-page">
+
+  <!-- ===================== NAVIGATION BAR ===================== -->
   <header class="navbar">
-    <a href="#" class="logo">
-      <img src="Spartan_Bites_Logo_Clear.png" alt="Spartan Bites Logo"> 
+    <!-- Logo on left; links to homepage -->
+    <a href="Spartan_Bites.html" class="logo">
+      <img src="Spartan_Bites_Logo_Clear.png" alt="Spartan Bites Logo" />
     </a>
+
+    <!-- Navigation links to other pages -->
     <nav class="nav-links">
       <a href="Spartan_Bites.html">Home</a>
       <a href="menu.html">Menu</a>
@@ -21,5 +30,173 @@
       <a href="waitlist.html">Join Waitlist</a>
     </nav>
   </header>
+
+  <!-- ===================== MAIN PAGE CONTENT ===================== -->
+  <main class="container">
+
+    <!-- ===== HERO SECTION (Main Page Title) ===== -->
+    <section class="menu-hero">
+      <h1 class="menu-title">Menu</h1>
+      <!-- Gold underline under the title -->
+      <div class="menu-title-underline"></div>
+    </section>
+
+    <!-- ===== STARTERS SECTION ===== -->
+    <section class="menu-section">
+      <div class="section-heading">
+        <span>Starters</span>
+      </div>
+      <div class="section-subtle-rule"></div>
+
+      <!-- Starter menu items -->
+      <div class="menu-list">
+
+        <!-- Item 1: Loaded Fries -->
+        <div class="menu-item">
+          <div class="item-header">
+            <div class="item-name">Loaded Fries</div>
+            <span class="dots" aria-hidden="true"></span>
+            <div class="item-price">$7.99</div>
+          </div>
+          <p class="item-desc">
+            Golden crispy fries topped with melted cheddar, bacon bits, green onions, and ranch.
+          </p>
+          <p class="item-allergens">Allergens: Dairy, Pork, Soy</p>
+        </div>
+
+        <!-- Item 2: Buffalo Chicken Tenders -->
+        <div class="menu-item">
+          <div class="item-header">
+            <div class="item-name">Buffalo Chicken Tenders</div>
+            <span class="dots" aria-hidden="true"></span>
+            <div class="item-price">$15.99</div>
+          </div>
+          <p class="item-desc">
+            Juicy chicken strips tossed in buffalo sauce with celery sticks and ranch or bleu cheese.
+          </p>
+          <p class="item-allergens">(Allergens: Wheat, Dairy, Soy)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BURGERS AND SANDWICHES ===== -->
+    <section class="menu-section menu-section--burgers">
+      <div class="menu-heading">
+        <!-- Burger icon (optional, remove if not available) -->
+        <img src="burger-icon.png" alt="" onerror="this.remove()">
+        <h2>Burgers and Sandwiches</h2>
+      </div>
+
+      <div class="burger-list">
+        <!-- Classic Spartan Burger -->
+        <div class="burger-item">
+          <div>
+            <h3 class="burger-name">Classic Spartan Burger</h3>
+            <p class="burger-desc">
+              Beef patty with lettuce, tomato, onions, pickles, and cheese on brioche bun.
+            </p>
+            <p class="burger-allergens">(Allergens: Wheat, Dairy, Soy)</p>
+          </div>
+          <div class="burger-price">$13.99</div>
+        </div>
+
+        <!-- BBQ Bacon Burger -->
+        <div class="burger-item">
+          <div>
+            <h3 class="burger-name">BBQ Bacon Burger</h3>
+            <p class="burger-desc">
+              Beef patty topped with crispy bacon, cheddar cheese, onion rings, and BBQ sauce.
+            </p>
+            <p class="burger-allergens">(Allergens: Wheat, Dairy, Soy, Pork)</p>
+          </div>
+          <div class="burger-price">$12.99</div>
+        </div>
+
+        <!-- Crispy Chicken Sandwich -->
+        <div class="burger-item">
+          <div>
+            <h3 class="burger-name">Crispy Chicken Sandwich</h3>
+            <p class="burger-desc">
+              Chicken breast with lettuce, tomato, pickles, and creamy mayo or spicy aioli on a toasted brioche bun.
+            </p>
+            <p class="burger-allergens">(Allergens: Wheat, Milk, Soy, Sesame)</p>
+          </div>
+          <div class="burger-price">$11.99</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WINGS / DRINKS / DESSERTS / BEER ===== -->
+    <section class="menu-section">
+      <div class="menu-grid-2">
+
+        <!-- Wings -->
+        <article class="menu-card">
+          <div class="card-heading">
+            <img src="icon-wings.png" alt="" loading="lazy" onerror="this.remove()">
+            <h3>Wings</h3>
+          </div>
+          <p class="card-subtitle">6pc – $7.99 | 12pc – $13.99</p>
+          <p>
+            Choice of <strong>Buffalo</strong>, <strong>BBQ</strong>, <strong>Garlic Parmesan</strong>,
+            <strong>Honey Sriracha</strong>, <strong>Teriyaki</strong>, <strong>Lemon Pepper</strong>.
+          </p>
+        </article>
+
+        <!-- Desserts -->
+        <article class="menu-card">
+          <div class="card-heading">
+            <img src="icon-dessert.png" alt="" loading="lazy" onerror="this.remove()">
+            <h3>Desserts</h3>
+          </div>
+          <ul class="menu-items">
+            <li class="row">
+              <span class="label">Brownie Sundae</span>
+              <span class="price">$5.99</span>
+            </li>
+            <li class="row">
+              <span class="label">Fried Cheesecake</span>
+              <span class="price">$6.49</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Drinks -->
+        <article class="menu-card">
+          <div class="card-heading">
+            <img src="icon-drink.png" alt="" loading="lazy" onerror="this.remove()">
+            <h3>Drinks</h3>
+          </div>
+          <p class="card-subtitle"><strong>Non Alcoholic</strong></p>
+          <ul class="menu-items">
+            <li class="row"><span class="label">Sodas</span><span class="price">$2.49</span></li>
+            <li class="row"><span class="label">Lemonade</span><span class="price">$2.99</span></li>
+            <li class="row"><span class="label">Iced Tea</span><span class="price">$2.99</span></li>
+            <li class="row"><span class="label">Energy Drinks</span><span class="price">$3.99</span></li>
+            <li class="row"><span class="label">Spartan Sunshine Cocktail</span><span class="price">$4.49</span></li>
+          </ul>
+        </article>
+
+        <!-- Beer & Alcohol -->
+        <article class="menu-card">
+          <div class="card-heading">
+            <img src="icon-beer.png" alt="" loading="lazy" onerror="this.remove()">
+            <h3>Beer &amp; Alcohol (21+)</h3>
+          </div>
+          <p><strong>Drafts</strong> (Pint $5.50 / Pitcher $16): Modelo, Coors Light, Corona</p>
+          <p>Sierra Nevada, Lagunitas IPA</p>
+          <p><strong>Bottles – $4.99:</strong> Corona, Heineken, Modelo, Guinness</p>
+          <p><strong>Hard Seltzers – $4.99:</strong> White Claw, Truly, Cutwater</p>
+        </article>
+      </div>
+
+      <!-- Allergen disclaimer centered at bottom -->
+      <p class="menu-disclaimer">
+        Allergen Disclaimer: Cross-contact may occur with fried or grilled items.
+        Please notify staff of severe allergies.
+      </p>
+    </section>
+
+  </main>
 </body>
 </html>
