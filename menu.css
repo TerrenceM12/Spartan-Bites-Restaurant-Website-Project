@@ -1,3 +1,5 @@
+/* Anthony Landa */
+
 /* ================= MENU PAGE STYLES =======================
    This stylesheet only affects the menu page (scoped via .menu-page)
 ============================================================= */
@@ -291,3 +293,33 @@
     font-size: 28px;
   }
 }
+/* ==== FORCE EVERY MENU TEXT ELEMENT TO USE THE SAME BRAND BLUE ==== */
+
+/* Item titles + prices (already blue, but keep for consistency) */
+.menu-page .item-name,
+.menu-page .item-price,
+.menu-page .burger-name,
+.menu-page .burger-price,
+.menu-page .row .label,
+.menu-page .row .price,
+.menu-page .menu-card .card-heading h3,
+.menu-page .menu-heading h2,
+.menu-page .section-heading span {
+  color: var(--main-blue) !important;
+}
+
+/* Descriptions + allergen notes + card paragraphs (were gray) */
+.menu-page .item-desc,
+.menu-page .item-allergens,
+.menu-page .burger-desc,
+.menu-page .burger-allergens,
+.menu-page .menu-card p,
+.menu-page .card-subtitle {
+  color: var(--main-blue) !important;
+}
+
+/* Optional: if you also want the dotted rule to visually match */
+.menu-page .dots {
+  border-bottom-color: var(--main-blue) !important;
+}
+/* Anthony Landa */
