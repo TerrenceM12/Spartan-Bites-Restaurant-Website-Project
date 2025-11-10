@@ -1,25 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spartan Bites - Home</title>
-  
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spartan Bites — Order</title>
 
+  <!-- Google Font (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
+<body class="order-page">
+  <!-- ===================== NAVIGATION BAR ===================== -->
   <header class="navbar">
-    <a href="#" class="logo">
-      <img src="Spartan_Bites_Logo_Clear.png" alt="Spartan Bites Logo"> 
+    <!-- Logo (clickable) -->
+    <a href="Spartan_Bites.html" class="logo">
+      <img src="Spartan_Bites_Logo_Clear.png" alt="Spartan Bites Logo" />
+      <span class="brand-text">Spartan Bites</span>
     </a>
+
+    <!-- Navigation links -->
     <nav class="nav-links">
-      <a href="Spartan_Bites.html">Home</a>
-      <a href="menu.html">Menu</a>
-      <a href="order.html">Order Now</a>
-      <a href="waitlist.html">Join Waitlist</a>
+      <a href="Spartan_Bites.html" class="nav-link">Home</a>
+      <a href="menu.html" class="nav-link">Menu</a>
+      <a href="order.html" class="nav-link active">Order Now</a>
+      <a href="waitlist.html" class="nav-link">Join Waitlist</a>
     </nav>
+
+    <!-- Call-to-action button -->
+    <button class="nav-cta" onclick="location.href='order.html'">Order Online</button>
   </header>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main class="container">
+    <section class="hero-slim">
+      <div class="hero-grid">
+        <!-- LEFT SECTION -->
+        <div class="hero-left">
+          <!-- Order icon graphic -->
+          <div class="icon-card">
+            <div class="clipboard">
+              <div class="clip"></div>
+              <div class="paper">Order!</div>
+            </div>
+          </div>
+
+          <!-- Buttons for ordering and directions -->
+          <div class="cta-row">
+            <a class="btn primary" href="#order">Order Online</a>
+            <a class="btn outline" href="https://maps.google.com/?q=Spartan+Bites" target="_blank">Get Directions</a>
+          </div>
+
+          <!-- Signup form for coupons and updates -->
+          <div class="signup-card" id="order">
+            <h2>Get snack drops &amp; coupons</h2>
+            <p class="sub">Join our list for weekly specials, pop-ups, and limited-time sauces.</p>
+
+            <form class="inline-form" action="#" method="post">
+              <label for="email" class="label">Email</label>
+              <div class="input-row">
+                <input id="email" name="email" type="email" placeholder="your@email.com" required />
+                <button class="btn small" type="submit">Join</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Contact and hours info -->
+          <div class="visit">
+            <h3>Visit &amp; Contact</h3>
+            <p class="muted">123 Spartan Bites St. San Jose City • (555) 123-4567 • spartanbites@gmail.com</p>
+            <p class="muted">Hours: Mon-Sat 11:00 AM – 9:30 PM</p>
+          </div>
+        </div>
+
+        <!-- RIGHT SECTION: Contact Form -->
+        <div class="hero-right">
+          <form class="contact-card" action="#" method="post">
+            <!-- Two input columns: name and email -->
+            <div class="input-2col">
+              <div class="field">
+                <label for="name">Your Name</label>
+                <input id="name" name="name" type="text" placeholder="Jane Spartan" required />
+              </div>
+              <div class="field">
+                <label for="contact-email">Email</label>
+                <input id="contact-email" name="contact-email" type="email" placeholder="you@example.com" required />
+              </div>
+            </div>
+
+            <!-- Message box -->
+            <div class="field">
+              <label for="message">How can we help?</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us about your order or question…" required></textarea>
+            </div>
+
+            <!-- Submit button -->
+            <button class="btn primary full" type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Spartan Bites. All rights reserved.</p>
+  </footer>
+
+  <!-- Script that updates the footer year automatically -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
