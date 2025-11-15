@@ -1,0 +1,325 @@
+/* Anthony Landa */
+
+/* ================= MENU PAGE STYLES =======================
+   This stylesheet only affects the menu page (scoped via .menu-page)
+============================================================= */
+
+/* Base setup: font color and background */
+.menu-page {
+  background: #ffffff;
+  color: #1b3358;
+}
+
+/* Content wrapper: limits width and centers everything */
+.menu-page .container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ================= HERO (Menu Title) ================= */
+.menu-page .menu-hero {
+  text-align: center;
+  margin: 56px 0 10px;
+}
+
+/* Big "Menu" title text */
+.menu-page .menu-title {
+  font-size: 56px;
+  line-height: 1.1;
+  color: var(--main-blue);
+  font-weight: 800;
+  margin: 0 0 12px;
+}
+
+/* Gold underline below "Menu" */
+.menu-page .menu-title-underline {
+  width: 120px;
+  height: 5px;
+  background: #e6b800;
+  margin: 0 auto 48px;
+  border-radius: 3px;
+}
+
+/* ================= SECTION HEADINGS ================= */
+.menu-page .section-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--main-blue);
+  font-weight: 800;
+  font-size: 32px;
+  margin: 0 0 10px;
+}
+
+/* Subtle horizontal divider */
+.menu-page .section-subtle-rule {
+  height: 1px;
+  background: #eef2f7;
+  margin: 8px 0 24px;
+}
+
+/* ================= STARTERS / GENERIC MENU ITEMS ================= */
+.menu-page .menu-list {
+  display: grid;
+  gap: 18px;
+}
+
+/* Each menu item block */
+.menu-page .menu-item {
+  padding: 14px 0 18px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+/* Header row: name ... price */
+.menu-page .item-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  column-gap: 12px;
+  margin-bottom: 6px;
+}
+
+/* Item name text */
+.menu-page .item-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--main-blue);
+}
+
+/* Dotted line connecting name and price */
+.menu-page .dots {
+  border-bottom: 2px dotted #cbd5e1;
+  height: 0;
+  transform: translateY(-3px);
+}
+
+/* Price text */
+.menu-page .item-price {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--main-blue);
+  white-space: nowrap;
+}
+
+/* Item description */
+.menu-page .item-desc {
+  font-size: 16px;
+  line-height: 1.55;
+  color: #3f4a5a;
+  margin: 0 0 6px;
+}
+
+/* Allergen info text */
+.menu-page .item-allergens {
+  font-size: 14px;
+  color: #6b7280;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ================= BURGERS & SANDWICHES ================= */
+.menu-page .menu-section--burgers {
+  margin-top: 32px;
+}
+
+/* Heading with burger icon */
+.menu-page .menu-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 18px;
+}
+
+.menu-page .menu-heading img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.menu-page .menu-heading h2 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--main-blue);
+}
+
+/* List layout for burgers */
+.menu-page .burger-list {
+  display: grid;
+  gap: 28px;
+}
+
+/* Each burger item (text left, price right) */
+.menu-page .burger-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  column-gap: 24px;
+}
+
+/* Burger name styling */
+.menu-page .burger-name {
+  margin: 0 0 6px;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--main-blue);
+}
+
+/* Burger description */
+.menu-page .burger-desc {
+  margin: 0 0 6px;
+  line-height: 1.55;
+  color: #3f4a5a;
+}
+
+/* Allergen info */
+.menu-page .burger-allergens {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Price styling */
+.menu-page .burger-price {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--main-blue);
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+/* ================= TWO-COLUMN GRID (Wings, Drinks, Desserts, Beer) ================= */
+/* Make right and left columns line up evenly by stretching card heights */
+.menu-page .menu-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 64px;
+  margin-top: 24px;
+  align-items: stretch;        /* forces equal height for cards in same row */
+}
+
+/* Ensure each card fills available height */
+.menu-page .menu-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+/* Card heading (icon + title) */
+.menu-page .menu-card .card-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 8px;
+}
+
+.menu-page .menu-card .card-heading img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: saturate(0.9);
+}
+
+.menu-page .menu-card .card-heading h3 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--main-blue);
+}
+
+/* Subtitle under heading (e.g. Non Alcoholic) */
+.menu-page .menu-card .card-subtitle {
+  margin: 4px 0 12px;
+  color: #3f4a5a;
+  font-size: 16px;
+}
+
+/* Item list for Desserts / Drinks */
+.menu-page .menu-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+/* Each row (name on left, price on right) */
+.menu-page .row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  column-gap: 16px;
+}
+
+/* Label and price formatting */
+.menu-page .row .label {
+  font-weight: 700;
+  color: var(--main-blue);
+}
+.menu-page .row .price {
+  font-weight: 700;
+  color: var(--main-blue);
+  white-space: nowrap;
+}
+
+/* Paragraph text in cards */
+.menu-page .menu-card p {
+  margin: 0 0 6px;
+  color: #3f4a5a;
+  line-height: 1.55;
+}
+
+/* Allergen disclaimer at bottom */
+.menu-page .menu-disclaimer {
+  text-align: center;
+  margin: 56px auto 0;
+  max-width: 900px;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--main-blue);
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+@media (max-width: 900px) {
+  .menu-page .menu-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .menu-page .menu-card .card-heading h3 {
+    font-size: 28px;
+  }
+}
+/* ==== FORCE EVERY MENU TEXT ELEMENT TO USE THE SAME BRAND BLUE ==== */
+
+/* Item titles + prices (already blue, but keep for consistency) */
+.menu-page .item-name,
+.menu-page .item-price,
+.menu-page .burger-name,
+.menu-page .burger-price,
+.menu-page .row .label,
+.menu-page .row .price,
+.menu-page .menu-card .card-heading h3,
+.menu-page .menu-heading h2,
+.menu-page .section-heading span {
+  color: var(--main-blue) !important;
+}
+
+/* Descriptions + allergen notes + card paragraphs (were gray) */
+.menu-page .item-desc,
+.menu-page .item-allergens,
+.menu-page .burger-desc,
+.menu-page .burger-allergens,
+.menu-page .menu-card p,
+.menu-page .card-subtitle {
+  color: var(--main-blue) !important;
+}
+
+/* Optional: if you also want the dotted rule to visually match */
+.menu-page .dots {
+  border-bottom-color: var(--main-blue) !important;
+}
+/* Anthony Landa */
