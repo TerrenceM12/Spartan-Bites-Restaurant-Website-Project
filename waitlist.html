@@ -52,9 +52,9 @@
             <p id="confirm"></p>
         </div>
     </main>
-    <script>
+        <script>
         const form = document.getElementById('waitlist-form');
-        const cofirmEl = document.getElementById('confirm');
+        const confirmEl = document.getElementById('confirm');
 
         form.addEventListener('submit', function (e) {
             e.preventDefault(); 
@@ -72,10 +72,10 @@
 
             const code = 'WL-' + Date.now().toString().slice(-5);
             const ahead = Math.floor(Math.random() * 5);
-            const eta = (ahead * 7) + 5; // rough estimate 
+            const eta = (ahead * 7) + 5;  
 
             confirmEl.textContent = 
-            "Thanks, ${name}! You're on the list There are ${ahead} parties ahead. Estimated wait ~{eta} minutes. Your code: ${code}";
+             `Thanks, ${name}! You’re on the list. There are ${ahead} parties ahead. Estimated wait ~${eta} minutes. Your code: ${code}`;
 
             form.reset();
             
