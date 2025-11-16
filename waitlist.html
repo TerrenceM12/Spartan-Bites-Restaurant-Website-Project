@@ -1,25 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spartan Bites - Home</title>
-  
-  <link rel="stylesheet" href="style.css">
+<!-- Jonathan Cupino -->
 
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Spartan Bites - Join Waitlist</title>
+    <link rel="stylesheet" href="waitlist.css">
 </head>
 <body>
+    <header class="navbar">
+        <a href="#" class="logo">
+            <img src="Spartan_Bites_Logo_Clear.png" alt="Spartan Bites Logo">
+        </a>
+        <nav class="nav-links">
+            <a href="Spartan_Bites.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="order.html">Order Now</a>
+            <a href="waitlist.html" aria-current="page">Join Waitlist</a>
+        </nav>
+    </header>
+    
+    <main class="container">
+        <h1 class="page-title">Join Waitlist</h1>
 
-  <header class="navbar">
-    <a href="#" class="logo">
-      <img src="Spartan_Bites_Logo_Clear.png" alt="Spartan Bites Logo"> 
-    </a>
-    <nav class="nav-links">
-      <a href="Spartan_Bites.html">Home</a>
-      <a href="menu.html">Menu</a>
-      <a href="order.html">Order Now</a>
-      <a href="waitlist.html">Join Waitlist</a>
-    </nav>
-  </header>
+        <div class="waitlist-box">
+            <form id="waitlist-form">
+                <label>
+                    Name<br>
+                    <input type="text" id="name" placeholder="John Doe" required>
+                </label>
+
+                <label>
+                    Phone<br>
+                    <input type="tel" id="phone" placeholder="(123)123-1234" required>
+                </label>
+
+                <label>
+                    Party Size<br>
+                    <input type="number" id="size" min="1" max="12" value="2" required>
+                </label>
+
+                <label>
+                    Notes to your server(optional)<br>
+                    <input type="text" id="notes" placeholder="Birthday, allergies, etc.">
+                </label>
+                
+                <button type="submit" class="button"> Join Waitlist</button>
+            </form>
+            <p id="confirm"></p>
+        </div>
+    </main>
+    <script>
+        const form = document.getElementById('waitlist-form');
+        const cofirmEl = document.getElementById('confirm');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); 
+        
+
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const size = parseInt(document.getElementById('size').value || '0', 10);
+            const notes = document.getElementById('notes').value.trim();
+
+            if (!name || !phone || !size) {
+                alert("Please fill out your name, phone, and party size.");
+                return;
+            }
+
+            const code = 'WL-' + Date.now().toString().slice(-5);
+            const ahead = Math.floor(Math.random() * 5);
+            const eta = (ahead * 7) + 5; // rough estimate 
+
+            confirmEl.textContent = 
+            "Thanks, ${name}! You're on the list There are ${ahead} parties ahead. Estimated wait ~{eta} minutes. Your code: ${code}";
+
+            form.reset();
+            
+        });
+    </script>
 </body>
 </html>
