@@ -62,7 +62,7 @@ body {
 }
 
 .navbar .logo img {
-  height: 100px; /* a bit smaller for better header balance */
+  height: 120px; 
   width: auto;
 }
 
