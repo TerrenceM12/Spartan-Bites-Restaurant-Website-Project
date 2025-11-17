@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spartan Bites - Order Now</title>
   <link rel="stylesheet" href="style.css">
-   <link rel="stylesheet" href="orderonline.css">
 </head>
 
 <body>
-  <!-- Navigation -->
+
+  <!-- Navigation Bar -->
   <header class="navbar">
     <a href="#" class="logo">
       <img src="Spartan_Bites_Logo_Clear.png" alt="Spartan Bites Logo">
@@ -23,226 +23,333 @@
   </header>
 
   <main class="order-page">
-    <!-- Left: Menu items to order -->
-    <section class="order-menu">
-      <h1>Order Online</h1>
-      <p>Select your items and adjust the quantities below.</p>
+    <h1>Order Online</h1>
 
-      <h2>Starters</h2>
-      <div class="menu-item" data-name="Loaded Fries" data-price="7.99">
-        <div class="menu-info">
-          <h3>Loaded Fries</h3>
-          <p class="price">$7.99</p>
-        </div>
-        <div class="quantity-controls">
-          <button class="qty-btn minus">-</button>
-          <span class="quantity">0</span>
-          <button class="qty-btn plus">+</button>
-        </div>
-      </div>
+    <div class="order-layout">
 
-      <div class="menu-item" data-name="Buffalo Chicken Tenders" data-price="15.99">
-        <div class="menu-info">
-          <h3>Buffalo Chicken Tenders</h3>
-          <p class="price">$15.99</p>
-        </div>
-        <div class="quantity-controls">
-          <button class="qty-btn minus">-</button>
-          <span class="quantity">0</span>
-          <button class="qty-btn plus">+</button>
-        </div>
-      </div>
+      <!-- ========================== -->
+      <!--       FULL MENU LIST       -->
+      <!-- ========================== -->
+      <section class="menu-items">
+        <h2>Menu</h2>
 
-      <h2>Burgers &amp; Sandwiches</h2>
+        <!-- -------------------- -->
+        <!--     STARTERS         -->
+        <!-- -------------------- -->
+        <h3>Starters</h3>
 
-      <div class="menu-item" data-name="Classic Spartan Burger" data-price="13.99">
-        <div class="menu-info">
-          <h3>Classic Spartan Burger</h3>
-          <p class="price">$13.99</p>
+        <div class="menu-item" data-name="Loaded Fries" data-price="7.99">
+          <div class="menu-info">
+            <h3>Loaded Fries</h3>
+            <p>Golden crispy fries topped with melted cheddar, bacon bits, green onions, and ranch.</p>
+            <span class="price">$7.99</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
         </div>
-        <div class="quantity-controls">
-          <button class="qty-btn minus">-</button>
-          <span class="quantity">0</span>
-          <button class="qty-btn plus">+</button>
-        </div>
-      </div>
 
-      <div class="menu-item" data-name="BBQ Bacon Burger" data-price="12.99">
-        <div class="menu-info">
-          <h3>BBQ Bacon Burger</h3>
-          <p class="price">$12.99</p>
+        <div class="menu-item" data-name="Buffalo Chicken Tenders" data-price="15.99">
+          <div class="menu-info">
+            <h3>Buffalo Chicken Tenders</h3>
+            <p>Juicy chicken strips tossed in buffalo sauce with celery sticks and ranch or bleu cheese.</p>
+            <span class="price">$15.99</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
         </div>
-        <div class="quantity-controls">
-          <button class="qty-btn minus">-</button>
-          <span class="quantity">0</span>
-          <button class="qty-btn plus">+</button>
-        </div>
-      </div>
 
-      <div class="menu-item" data-name="Crispy Chicken Sandwich" data-price="11.99">
-        <div class="menu-info">
-          <h3>Crispy Chicken Sandwich</h3>
-          <p class="price">$11.99</p>
-        </div>
-        <div class="quantity-controls">
-          <button class="qty-btn minus">-</button>
-          <span class="quantity">0</span>
-          <button class="qty-btn plus">+</button>
-        </div>
-      </div>
+        <!-- ------------------------------ -->
+        <!--  BURGERS & SANDWICHES          -->
+        <!-- ------------------------------ -->
+        <h3>Burgers & Sandwiches</h3>
 
-      <h2>Wings</h2>
+        <div class="menu-item" data-name="Classic Spartan Burger" data-price="13.99">
+          <div class="menu-info">
+            <h3>Classic Spartan Burger</h3>
+            <p>Beef patty with lettuce, tomato, onions, pickles, and cheese on a brioche bun.</p>
+            <span class="price">$13.99</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
+        </div>
 
-      <div class="menu-item" data-name="Wings 6pc" data-price="7.99">
-        <div class="menu-info">
-          <h3>Wings 6pc</h3>
-          <p class="price">$7.99</p>
+        <div class="menu-item" data-name="BBQ Bacon Burger" data-price="12.99">
+          <div class="menu-info">
+            <h3>BBQ Bacon Burger</h3>
+            <p>Beef patty topped with crispy bacon, cheddar cheese, onion rings, and BBQ sauce.</p>
+            <span class="price">$12.99</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
         </div>
-        <div class="quantity-controls">
-          <button class="qty-btn minus">-</button>
-          <span class="quantity">0</span>
-          <button class="qty-btn plus">+</button>
-        </div>
-      </div>
 
-      <div class="menu-item" data-name="Wings 12pc" data-price="13.99">
-        <div class="menu-info">
-          <h3>Wings 12pc</h3>
-          <p class="price">$13.99</p>
+        <div class="menu-item" data-name="Crispy Chicken Sandwich" data-price="11.99">
+          <div class="menu-info">
+            <h3>Crispy Chicken Sandwich</h3>
+            <p>Chicken breast with lettuce, tomato, pickles, and mayo or spicy aioli on a brioche bun.</p>
+            <span class="price">$11.99</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
         </div>
-        <div class="quantity-controls">
-          <button class="qty-btn minus">-</button>
-          <span class="quantity">0</span>
-          <button class="qty-btn plus">+</button>
-        </div>
-      </div>
 
-      <h2>Desserts</h2>
+        <!-- -------------------- -->
+        <!--        WINGS         -->
+        <!-- -------------------- -->
+        <h3>Wings</h3>
 
-      <div class="menu-item" data-name="Brownie Sundae" data-price="5.99">
-        <div class="menu-info">
-          <h3>Brownie Sundae</h3>
-          <p class="price">$5.99</p>
+        <div class="menu-item" data-name="Wings (6pc)" data-price="7.99">
+          <div class="menu-info">
+            <h3>Wings (6pc)</h3>
+            <p>Choice of Buffalo, BBQ, Garlic Parmesan, Honey Sriracha, Teriyaki, or Lemon Pepper.</p>
+            <span class="price">$7.99</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
         </div>
-        <div class="quantity-controls">
-          <button class="qty-btn minus">-</button>
-          <span class="quantity">0</span>
-          <button class="qty-btn plus">+</button>
-        </div>
-      </div>
 
-      <div class="menu-item" data-name="Fried Cheesecake" data-price="6.49">
-        <div class="menu-info">
-          <h3>Fried Cheesecake</h3>
-          <p class="price">$6.49</p>
+        <div class="menu-item" data-name="Wings (12pc)" data-price="13.99">
+          <div class="menu-info">
+            <h3>Wings (12pc)</h3>
+            <p>Choice of Buffalo, BBQ, Garlic Parmesan, Honey Sriracha, Teriyaki, or Lemon Pepper.</p>
+            <span class="price">$13.99</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
         </div>
-        <div class="quantity-controls">
-          <button class="qty-btn minus">-</button>
-          <span class="quantity">0</span>
-          <button class="qty-btn plus">+</button>
-        </div>
-      </div>
 
-      <h2>Drinks</h2>
+        <!-- -------------------- -->
+        <!--       DESSERTS       -->
+        <!-- -------------------- -->
+        <h3>Desserts</h3>
 
-      <div class="menu-item" data-name="Soda" data-price="2.49">
-        <div class="menu-info">
-          <h3>Soda</h3>
-          <p class="price">$2.49</p>
+        <div class="menu-item" data-name="Brownie Sundae" data-price="5.99">
+          <div class="menu-info">
+            <h3>Brownie Sundae</h3>
+            <p>Warm brownie topped with vanilla ice cream and chocolate drizzle.</p>
+            <span class="price">$5.99</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
         </div>
-        <div class="quantity-controls">
-          <button class="qty-btn minus">-</button>
-          <span class="quantity">0</span>
-          <button class="qty-btn plus">+</button>
-        </div>
-      </div>
 
-      <div class="menu-item" data-name="Lemonade" data-price="2.99">
-        <div class="menu-info">
-          <h3>Lemonade</h3>
-          <p class="price">$2.99</p>
+        <div class="menu-item" data-name="Fried Cheesecake" data-price="6.49">
+          <div class="menu-info">
+            <h3>Fried Cheesecake</h3>
+            <p>Crispy fried cheesecake topped with powdered sugar and icing.</p>
+            <span class="price">$6.49</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
         </div>
-        <div class="quantity-controls">
-          <button class="qty-btn minus">-</button>
-          <span class="quantity">0</span>
-          <button class="qty-btn plus">+</button>
-        </div>
-      </div>
 
-      <div class="menu-item" data-name="Iced Tea" data-price="2.99">
-        <div class="menu-info">
-          <h3>Iced Tea</h3>
-          <p class="price">$2.99</p>
-        </div>
-        <div class="quantity-controls">
-          <button class="qty-btn minus">-</button>
-          <span class="quantity">0</span>
-          <button class="qty-btn plus">+</button>
-        </div>
-      </div>
+        <!-- ---------------------------- -->
+        <!--     NON-ALCOHOLIC DRINKS     -->
+        <!-- ---------------------------- -->
+        <h3>Drinks (Non-Alcoholic)</h3>
 
-      <div class="menu-item" data-name="Energy Drink" data-price="3.99">
-        <div class="menu-info">
-          <h3>Energy Drink</h3>
-          <p class="price">$3.99</p>
+        <div class="menu-item" data-name="Sodas" data-price="2.49">
+          <div class="menu-info">
+            <h3>Sodas</h3>
+            <p>Assorted fountain drinks.</p>
+            <span class="price">$2.49</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
         </div>
-        <div class="quantity-controls">
-          <button class="qty-btn minus">-</button>
-          <span class="quantity">0</span>
-          <button class="qty-btn plus">+</button>
-        </div>
-      </div>
 
-      <div class="menu-item" data-name="Spartan Sunshine Cocktail" data-price="4.49">
-        <div class="menu-info">
-          <h3>Spartan Sunshine Cocktail</h3>
-          <p class="price">$4.49</p>
+        <div class="menu-item" data-name="Lemonade" data-price="2.99">
+          <div class="menu-info">
+            <h3>Lemonade</h3>
+            <p>Fresh and sweet lemonade.</p>
+            <span class="price">$2.99</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
         </div>
-        <div class="quantity-controls">
-          <button class="qty-btn minus">-</button>
-          <span class="quantity">0</span>
-          <button class="qty-btn plus">+</button>
-        </div>
-      </div>
-    </section>
 
-    <!-- Right: Cart + Contact form -->
-    <section class="order-sidebar">
-      <div class="cart">
+        <div class="menu-item" data-name="Iced Tea" data-price="2.99">
+          <div class="menu-info">
+            <h3>Iced Tea</h3>
+            <p>Chilled brewed iced tea.</p>
+            <span class="price">$2.99</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Energy Drinks" data-price="3.99">
+          <div class="menu-info">
+            <h3>Energy Drinks</h3>
+            <p>Variety of energy drinks.</p>
+            <span class="price">$3.99</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Spartan Sunshine Cocktail" data-price="4.49">
+          <div class="menu-info">
+            <h3>Spartan Sunshine Cocktail</h3>
+            <p>Sparkling citrus mocktail.</p>
+            <span class="price">$4.49</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
+        </div>
+
+        <!-- ---------------------------- -->
+        <!--     BEER & ALCOHOL (21+)     -->
+        <!-- ---------------------------- -->
+        <h3>Beer & Alcohol (21+)</h3>
+
+        <div class="menu-item" data-name="Draft Beer (Pint)" data-price="5.50">
+          <div class="menu-info">
+            <h3>Draft Beer (Pint)</h3>
+            <p>Modelo, Coors Light, Corona, Sierra Nevada, Lagunitas IPA.</p>
+            <span class="price">$5.50</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Draft Beer (Pitcher)" data-price="16.00">
+          <div class="menu-info">
+            <h3>Draft Beer (Pitcher)</h3>
+            <p>Modelo, Coors Light, Corona, Sierra Nevada, Lagunitas IPA.</p>
+            <span class="price">$16.00</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Bottled Beer" data-price="4.99">
+          <div class="menu-info">
+            <h3>Bottled Beer</h3>
+            <p>Corona, Heineken, Modelo, Guinness.</p>
+            <span class="price">$4.99</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-name="Hard Seltzer" data-price="4.99">
+          <div class="menu-info">
+            <h3>Hard Seltzer</h3>
+            <p>White Claw, Truly, Cutwater.</p>
+            <span class="price">$4.99</span>
+          </div>
+          <div class="menu-actions">
+            <button class="qty-btn minus">-</button>
+            <span class="qty">0</span>
+            <button class="qty-btn plus">+</button>
+          </div>
+        </div>
+
+      </section>
+
+
+      <!-- ========================== -->
+      <!--          CART SIDE         -->
+      <!-- ========================== -->
+      <aside class="cart">
         <h2>Your Cart</h2>
-        <ul id="cart-items">
-          <!-- JS will insert cart items here -->
+        <ul class="cart-items">
+          <li class="empty">Cart is empty</li>
         </ul>
-        <p class="cart-total">
-          Total: $<span id="cart-total">0.00</span>
-        </p>
-      </div>
+        <div class="cart-total">
+          Total: <span id="cart-total">$0.00</span>
+        </div>
+      </aside>
+    </div>
 
-      <form id="order-form" class="order-form">
-        <h2>Contact Information</h2>
+    <!-- ========================== -->
+    <!--         ORDER FORM         -->
+    <!-- ========================== -->
+    <section class="order-form-section">
+      <h2>Contact Information</h2>
 
-        <label for="customer-name">Full Name *</label>
-        <input type="text" id="customer-name" required>
+      <form id="order-form">
+        <div class="form-row">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" required>
+        </div>
 
-        <label for="customer-phone">Phone Number *</label>
-        <input type="tel" id="customer-phone" required>
+        <div class="form-row two-col">
+          <div>
+            <label for="email">Email *</label>
+            <input type="email" id="email" required>
+          </div>
 
-        <label for="customer-email">Email</label>
-        <input type="email" id="customer-email" placeholder="optional">
+          <div>
+            <label for="phone">Phone *</label>
+            <input type="tel" id="phone" required>
+          </div>
+        </div>
 
-        <label for="special-requests">Special Requests / Message</label>
-        <textarea id="special-requests" rows="4"
-          placeholder="Any special requests or notes for the kitchen?"></textarea>
+        <div class="form-row">
+          <label for="special-requests">Special Requests</label>
+          <textarea id="special-requests" rows="3" placeholder="Any allergies or instructions?"></textarea>
+        </div>
 
-        <button type="submit" class="submit-order-btn">Place Order</button>
+        <button type="submit" class="confirm-btn">Confirm Order</button>
+        <p id="confirmation-message" class="confirmation-message"></p>
       </form>
-
-      <div id="order-confirmation" class="order-confirmation hidden">
-        <!-- JS will fill this -->
-      </div>
     </section>
   </main>
 
   <script src="order.js"></script>
+
 </body>
 </html>
