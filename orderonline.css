@@ -1,0 +1,187 @@
+/* ===== Order Page Layout ===== */
+
+.order-page {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 15px 30px;
+  box-sizing: border-box;
+}
+
+.order-page h1 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.order-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Menu list (left) */
+.menu-items {
+  flex: 2 1 300px;
+}
+
+/* Cart (right) */
+.cart {
+  flex: 1 1 250px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+/* Menu item rows */
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.menu-info h3 {
+  margin: 0 0 5px;
+  font-size: 16px;
+}
+
+.menu-info p {
+  margin: 0 0 5px;
+  font-size: 13px;
+  color: #555;
+}
+
+.menu-info .price {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* + / - buttons + quantity */
+.menu-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.qty {
+  min-width: 18px;
+  text-align: center;
+}
+
+/* Cart styles */
+.cart-items {
+  list-style: none;
+  padding-left: 0;
+  margin: 10px 0;
+}
+
+.cart-items li {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.cart-items li.empty {
+  color: #777;
+  font-style: italic;
+}
+
+.cart-total {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Contact form section */
+.order-form-section {
+  margin-top: 25px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+#order-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-row {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row label {
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.form-row input,
+.form-row textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Two-column row for email/phone */
+.form-row.two-col {
+  flex-direction: row;
+  gap: 10px;
+}
+
+.form-row.two-col > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Confirm button */
+.confirm-btn {
+  margin-top: 8px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 4px;
+  background: #004b8d;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.confirm-btn:hover {
+  opacity: 0.95;
+}
+
+/* Confirmation text */
+.confirmation-message {
+  margin-top: 10px;
+  font-size: 14px;
+  color: green;
+  display: none;
+}
+
+.confirmation-message.show {
+  display: block;
+}
+
+/* Active link in navbar (optional) */
+.nav-links a.active {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .order-layout {
+    flex-direction: column;
+  }
+}
