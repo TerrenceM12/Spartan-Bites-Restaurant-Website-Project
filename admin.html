@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spartan Bites – Admin Dashboard</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin: 40px;
+      background: #f7f7f7;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 8px 16px;
+      margin-bottom: 20px;
+      background: #004b8d;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    th {
+      background: #004b8d;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background: #f2f2f2;
+    }
+    .item-list {
+      font-size: 13px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Spartan Bites – Admin Dashboard</h1>
+
+  <button onclick="loadOrders()">Refresh Orders</button>
+  <button onclick="exportCSV()">Download CSV</button>
+
+  <table id="ordersTable">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Customer</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Items</th>
+        <th>Total</th>
+        <th>Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const API_URL = "https://spartan-bites-api.onrender.com";
+
+    async function loadOrders() {
+      const res = await fetch(API_URL + "/api/orders");
+      const data = await res.json();
+
+      const tbody = document.querySelector("#ordersTable tbody");
+      tbody.innerHTML = "";
+
+      data.orders.forEach(order => {
+        const row = document.createElement("tr");
+
+        const itemsHTML = order.items.map(i => 
+          `<div class='item-list'>${i.quantity}× ${i.itemName}</div>`
+        ).join("");
+
+        row.innerHTML = `
+          <td>${order.orderId}</td>
+          <td>${order.customerName}</td>
+          <td>${order.customerEmail}</td>
+          <td>${order.customerPhone}</td>
+          <td>${itemsHTML}</td>
+          <td>$${order.orderTotal}</td>
+          <td>${new Date(order.orderDate).toLocaleString()}</td>
+          <td>${order.status}</td>
+        `;
+
+        tbody.appendChild(row);
+      });
+    }
+
+    function exportCSV() {
+      window.location.href = API_URL + "/api/export/csv";
+    }
+
+    loadOrders();
+  </script>
+
+</body>
+</html>
