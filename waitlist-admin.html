@@ -108,13 +108,30 @@
         data.waitlist.forEach(entry => {
           const row = document.createElement("tr");
 
+          // Decide button state
+          let buttonHTML = "";
+
+          if (entry.status === "seated") {
+            buttonHTML = `
+              <button class="seat-btn" disabled style="background:#d9534f;color:white;">
+                Seated
+              </button>
+            `;
+          } else {
+            buttonHTML = `
+              <button class="seat-btn" data-id="${entry.id}">
+                Seat
+              </button>
+            `;
+          }
+
           row.innerHTML = `
             <td>${entry.name}</td>
             <td>${entry.phone}</td>
             <td>${entry.size}</td>
             <td>${entry.notes || ""}</td>
             <td class="time">${new Date(entry.timeJoined).toLocaleTimeString()}</td>
-            <td><button class="seat-btn" onclick="seatParty(${entry.id})">Seat</button></td>
+            <td>${buttonHTML}</td>
           `;
 
           tbody.appendChild(row);
@@ -125,21 +142,39 @@
       }
     }
 
-    // Auto load every 10 seconds
+    // Auto-refresh every 10 sec
     loadWaitlist();
     setInterval(loadWaitlist, 10000);
-
-    // ===== WENDY MAGDAY CODE — REMOVE/SEAT PARTY =====
-    async function seatParty(id) {
-      if (!confirm("Seat this party?")) return;
-
-      await fetch(`https://spartan-bites-api.onrender.com/api/waitlist/${id}`, {
-        method: "DELETE"
-      });
-
-      loadWaitlist(); // Refresh table
-    }
   </script>
+
+<!-- ===== WENDY MAGDAY CODE START (SEAT BUTTON LOGIC) ===== -->
+<script>
+async function seatGuest(id, button) {
+    const response = await fetch(
+        `https://spartan-bites-api.onrender.com/api/waitlist/seat/${id}`,
+        { method: "PUT" }
+    );
+
+    const data = await response.json();
+
+    if (data.success) {
+        button.textContent = "Seated";
+        button.style.backgroundColor = "#d9534f";
+        button.style.color = "white";
+        button.style.border = "none";
+        button.disabled = true;
+    }
+}
+
+// Listen for clicks on ANY seat-btn
+document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("seat-btn") && e.target.dataset.id) {
+        const id = e.target.dataset.id;
+        seatGuest(id, e.target);
+    }
+});
+</script>
+<!-- ===== WENDY MAGDAY CODE END (SEAT BUTTON LOGIC) ===== -->
 
 </body>
 </html>
