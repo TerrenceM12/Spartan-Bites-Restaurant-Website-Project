@@ -1,10 +1,11 @@
 /* Spartan Bites Waitlist CSS — Jonathan Cupino */
 
+/* Sets background color for entire page */
 body {
   background: #f7f9fc;
 }
 
-
+/* Page title styling */
 .page-title {
   color: var(--main-blue);
   margin-top: 8px;
@@ -12,7 +13,7 @@ body {
   letter-spacing: 0.2px;
 }
 
-
+/* White card-style box that centers the waitlist form */
 .waitlist-box {
   max-width: 520px;
   margin: 20px auto 0;
@@ -25,13 +26,19 @@ body {
     0 14px 40px rgba(16, 24, 40, 0.08);
 }
 
-.waitlist-box form { display: grid; gap: 14px; }
+/* Organizes form fields in a vertical grid */
+.waitlist-box form { 
+  display: grid; 
+  gap: 14px;
+}
 
+/* Label styling */
 .waitlist-box label {
   font-size: 14px;
   color: #0f1e2e;
 }
 
+/* Input box styles for text, phone, and number fields */
 .waitlist-box input[type="text"],
 .waitlist-box input[type="tel"],
 .waitlist-box input[type="number"] {
@@ -48,12 +55,13 @@ body {
   transition: border-color 120ms ease, box-shadow 120ms ease;
 }
 
+/* Highlight input when user clicks inside */
 .waitlist-box input:focus {
-  
   border-color: color-mix(in srgb, var(--main-blue) 60%, #ffffff);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--main-blue) 18%, #ffffff);
 }
 
+/* Logo size control in navbar */
 .navbar .logo {
   display: flex;
   align-items: center;
@@ -73,7 +81,7 @@ body {
   letter-spacing: 0.5px;
 }
 
-
+/* Button style */
 .btn {
   display: inline-block;
   width: 100%;
@@ -89,9 +97,11 @@ body {
   box-shadow: 0 6px 18px rgba(0, 68, 136, 0.18);
 }
 
+/* Button hover and click effects */
 .btn:hover { filter: brightness(0.95); }
 .btn:active { transform: translateY(1px); }
 
+/* Confirmation message box */
 #confirm {
   margin-top: 14px;
   padding: 12px 14px;
@@ -103,5 +113,6 @@ body {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5);
 }
 
+/* Responsive tweaks for different screen sizes */
 @media (min-width: 1400px) { .waitlist-box { margin-top: 28px; } }
 @media (max-width: 480px)  { .waitlist-box { padding: 18px; border-radius: 14px; } .btn { border-radius: 10px; } }
