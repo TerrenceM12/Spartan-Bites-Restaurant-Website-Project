@@ -1,0 +1,145 @@
+<!-- ===== WENDY MAGDAY WAITLIST ADMIN DASHBOARD ===== -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spartan Bites - Waitlist Admin</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ===== WENDY MAGDAY DASHBOARD STYLING ===== */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #004b8d;
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      background: white;
+      border-collapse: collapse;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 14px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    th {
+      background: #004b8d;
+      color: white;
+      font-size: 15px;
+    }
+
+    tr:hover {
+      background: #f1f5fb;
+    }
+
+    button.seat-btn {
+      padding: 8px 12px;
+      background: #28a745;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button.seat-btn:hover {
+      background: #1e7e34;
+    }
+
+    .time {
+      font-size: 13px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Waitlist Admin Dashboard</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Party</th>
+        <th>Notes</th>
+        <th>Time Joined</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="waitlist-table">
+      <tr><td colspan="6" style="text-align:center;">Loading...</td></tr>
+    </tbody>
+  </table>
+
+  <script>
+    // ===== WENDY MAGDAY CODE — FETCH WAITLIST =====
+    async function loadWaitlist() {
+      try {
+        const res = await fetch("https://spartan-bites-api.onrender.com/api/waitlist");
+        const data = await res.json();
+
+        const tbody = document.getElementById("waitlist-table");
+        tbody.innerHTML = "";
+
+        if (!data.waitlist || data.waitlist.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;">No one is currently on the waitlist.</td></tr>`;
+          return;
+        }
+
+        data.waitlist.forEach(entry => {
+          const row = document.createElement("tr");
+
+          row.innerHTML = `
+            <td>${entry.name}</td>
+            <td>${entry.phone}</td>
+            <td>${entry.size}</td>
+            <td>${entry.notes || ""}</td>
+            <td class="time">${new Date(entry.timeJoined).toLocaleTimeString()}</td>
+            <td><button class="seat-btn" onclick="seatParty(${entry.id})">Seat</button></td>
+          `;
+
+          tbody.appendChild(row);
+        });
+
+      } catch (err) {
+        console.error("Error loading waitlist:", err);
+      }
+    }
+
+    // Auto load every 10 seconds
+    loadWaitlist();
+    setInterval(loadWaitlist, 10000);
+
+    // ===== WENDY MAGDAY CODE — REMOVE/SEAT PARTY =====
+    async function seatParty(id) {
+      if (!confirm("Seat this party?")) return;
+
+      await fetch(`https://spartan-bites-api.onrender.com/api/waitlist/${id}`, {
+        method: "DELETE"
+      });
+
+      loadWaitlist(); // Refresh table
+    }
+  </script>
+
+</body>
+</html>
