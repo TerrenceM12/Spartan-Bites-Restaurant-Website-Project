@@ -12,10 +12,12 @@
     <link rel="stylesheet" href="waitlist.css">
 </head>
 <body>
+    <!-- Header section with logo and navigation -->
     <header class="navbar">
         <a href="#" class="logo">
             <img src="Spartan_Bites_Logo_Clear.png" alt="Spartan Bites Logo">
         </a>
+        <!-- Navigation links to different pages -->
         <nav class="nav-links">
             <a href="index.html">Home</a>
             <a href="menu.html">Menu</a>
@@ -23,62 +25,80 @@
             <a href="waitlist.html" aria-current="page">Join Waitlist</a>
         </nav>
     </header>
-    
+
+    <!-- Main content area -->
     <main class="container">
         <h1 class="page-title">Join Waitlist</h1>
 
+        <!-- White card-style box that contains the form -->
         <div class="waitlist-box">
             <form id="waitlist-form">
+                
+                <!-- Name input -->
                 <label>
                     Name<br>
                     <input type="text" id="name" placeholder="John Doe" required>
                 </label>
 
+                <!-- Phone number input -->
                 <label>
                     Phone<br>
                     <input type="tel" id="phone" placeholder="(123)123-1234" required>
                 </label>
 
+                <!-- Party size input (number type) -->
                 <label>
                     Party Size<br>
                     <input type="number" id="size" min="1" max="12" value="2" required>
                 </label>
 
+                <!-- Optional notes input -->
                 <label>
                     Notes to your server(optional)<br>
                     <input type="text" id="notes" placeholder="Birthday, allergies, etc.">
                 </label>
-                
+
+                <!-- Submit button -->
                 <button type="submit" class="button"> Join Waitlist</button>
             </form>
+
+            <!-- Confirmation message appears here after submission -->
             <p id="confirm"></p>
         </div>
     </main>
+
+        <!-- Inline JavaScript -->
         <script>
+         // Select form and confirmation paragraph
         const form = document.getElementById('waitlist-form');
         const confirmEl = document.getElementById('confirm');
 
+        // Listen for form submission
         form.addEventListener('submit', function (e) {
             e.preventDefault(); 
         
-
+            // Get and clean input values
             const name = document.getElementById('name').value.trim();
             const phone = document.getElementById('phone').value.trim();
             const size = parseInt(document.getElementById('size').value || '0', 10);
             const notes = document.getElementById('notes').value.trim();
 
+            // Basic validation: all required fields must be filled
             if (!name || !phone || !size) {
                 alert("Please fill out your name, phone, and party size.");
                 return;
             }
 
+            // Generate a simple random waitlist code and wait time
             const code = 'WL-' + Date.now().toString().slice(-5);
             const ahead = Math.floor(Math.random() * 5);
             const eta = (ahead * 7) + 5;  
 
+            // Display confirmation message
             confirmEl.textContent = 
              `Thanks, ${name}! You’re on the list. There are ${ahead} parties ahead. Estimated wait ~${eta} minutes. Your code: ${code}`;
 
+            // Clear form after submission
             form.reset();
             
         });
