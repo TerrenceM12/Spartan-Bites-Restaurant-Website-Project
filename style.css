@@ -95,10 +95,11 @@ body {
 /* --- Visit Us Section --- */
 .visit-us-section {
   display: flex;
-  align-items: center;
+  align-items: flex-start;   
   justify-content: space-between;
   gap: 40px;
 }
+
 
 .visit-us-info h2 {
   font-size: 36px;
