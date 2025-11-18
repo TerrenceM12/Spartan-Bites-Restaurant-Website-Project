@@ -84,6 +84,8 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
+ // ===== WENDY MAGDAY CODE START =====
+    
     const customerInfo = {
       name: document.getElementById('name').value.trim(),
       email: document.getElementById('email').value.trim(),
@@ -111,6 +113,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const result = await response.json();
 
+    // ===== WENDY MAGDAY CODE END =====
+      
       confirmationMessage.textContent =
         `Thank you, ${customerInfo.name}! Your order${result.orderId ? ` (#${result.orderId})` : ''} has been submitted. Total: $${total}.`;
       confirmationMessage.classList.add('show');
