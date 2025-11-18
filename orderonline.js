@@ -80,6 +80,42 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
+    
+// ==== SEND ORDER TO BACKEND API ====
+const customerInfo = {
+  name: document.getElementById('name').value,
+  email: document.getElementById('email').value,
+  phone: document.getElementById('phone').value,
+  specialRequests: document.getElementById('special-requests').value
+};
+
+const items = Object.keys(cart).map(name => ({
+  name,
+  price: cart[name].price,
+  qty: cart[name].qty,
+  itemTotal: (cart[name].price * cart[name].qty).toFixed(2)
+}));
+
+const total = cartTotalEl.textContent.replace('$', '');
+
+const orderData = { customerInfo, items, total };
+
+// Send to backend (Render API)
+fetch("https://spartan-bites-api.onrender.com/api/orders", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(orderData)
+})
+.then(res => res.json())
+.then(data => {
+  console.log("Order stored on backend:", data);
+})
+.catch(err => {
+  console.error("Backend error:", err);
+});
+
+
+    
   const customerInfo = {
     name: document.getElementById('name').value,
     email: document.getElementById('email').value,
