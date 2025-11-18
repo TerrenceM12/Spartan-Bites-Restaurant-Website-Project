@@ -67,41 +67,46 @@
         </div>
     </main>
 
-        <!-- Inline JavaScript -->
-        <script>
-         // Select form and confirmation paragraph
-        const form = document.getElementById('waitlist-form');
-        const confirmEl = document.getElementById('confirm');
+  <!-- ===== WENDY MAGDAY UPDATED SCRIPT FOR BACKEND ===== -->
+<script>
+const form = document.getElementById('waitlist-form');
+const confirmEl = document.getElementById('confirm');
 
-        // Listen for form submission
-        form.addEventListener('submit', function (e) {
-            e.preventDefault(); 
-        
-            // Get and clean input values
-            const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const size = parseInt(document.getElementById('size').value || '0', 10);
-            const notes = document.getElementById('notes').value.trim();
+form.addEventListener('submit', async function (e) {
+    e.preventDefault();
 
-            // Basic validation: all required fields must be filled
-            if (!name || !phone || !size) {
-                alert("Please fill out your name, phone, and party size.");
-                return;
-            }
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const size = parseInt(document.getElementById('size').value, 10);
+    const notes = document.getElementById('notes').value.trim();
 
-            // Generate a simple random waitlist code and wait time
-            const code = 'WL-' + Date.now().toString().slice(-5);
-            const ahead = Math.floor(Math.random() * 5);
-            const eta = (ahead * 7) + 5;  
+    if (!name || !phone || !size) {
+        alert("Please fill out your name, phone, and party size.");
+        return;
+    }
 
-            // Display confirmation message
-            confirmEl.textContent = 
-             `Thanks, ${name}! You’re on the list. There are ${ahead} parties ahead. Estimated wait ~${eta} minutes. Your code: ${code}`;
-
-            // Clear form after submission
-            form.reset();
-            
+    try {
+        const response = await fetch("https://spartan-bites-api.onrender.com/api/waitlist", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, phone, size, notes })
         });
-    </script>
+
+        const data = await response.json();
+
+        if (data.success) {
+            confirmEl.textContent =
+                `Thanks, ${name}! You’re checked in. Your waitlist ID: WL-${data.waitlistId}`;
+            form.reset();
+        } else {
+            confirmEl.textContent = "Something went wrong. Please try again.";
+        }
+
+    } catch (err) {
+        confirmEl.textContent = "Backend connection failed.";
+    }
+});
+</script>
+
 </body>
 </html>
