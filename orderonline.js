@@ -67,30 +67,52 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Form submission
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+  form.addEventListener('submit', async function (e) {
+  e.preventDefault();
 
-    if (Object.keys(cart).length === 0) {
-      alert("Your cart is empty!");
-      return;
-    }
+  if (Object.keys(cart).length === 0) {
+    alert("Your cart is empty!");
+    return;
+  }
 
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
 
-    let name = document.getElementById('name').value;
-    let total = cartTotalEl.textContent;
+  const customerInfo = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    specialRequests: document.getElementById('special-requests').value
+  };
 
-    confirmationMessage.textContent =
-      `Thank you, ${name}! Your order has been received. Total: ${total}.`;
-    confirmationMessage.classList.add('show');
+  const items = Object.keys(cart).map(name => ({
+    name,
+    price: cart[name].price,
+    qty: cart[name].qty,
+    itemTotal: (cart[name].price * cart[name].qty).toFixed(2)
+  }));
 
-    // Reset cart + form
-    cart = {};
-    document.querySelectorAll('.qty').forEach(span => span.textContent = '0');
-    updateCartUI();
-    form.reset();
+  const total = cartTotalEl.textContent.replace('$', '');
+
+  const orderData = { customerInfo, items, total };
+
+  const response = await fetch("https://spartan-bites-api.onrender.com/api/orders", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(orderData)
   });
+
+  const result = await response.json();
+
+  confirmationMessage.textContent =
+    `Thank you, ${customerInfo.name}! Your order (#${result.orderId}) has been submitted. Total: $${total}.`;
+
+  confirmationMessage.classList.add('show');
+
+  cart = {};
+  document.querySelectorAll('.qty').forEach(span => span.textContent = '0');
+  updateCartUI();
+  form.reset();
 });
