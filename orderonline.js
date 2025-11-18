@@ -1,3 +1,4 @@
+// Casey De Vera
 document.addEventListener('DOMContentLoaded', function () {
   var menuItems = document.querySelectorAll('.menu-item');
   var cartItemsList = document.querySelector('.cart-items');
