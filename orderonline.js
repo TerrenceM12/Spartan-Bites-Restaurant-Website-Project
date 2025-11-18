@@ -115,4 +115,6 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.qty').forEach(span => span.textContent = '0');
   updateCartUI();
   form.reset();
+  });
 });
+
