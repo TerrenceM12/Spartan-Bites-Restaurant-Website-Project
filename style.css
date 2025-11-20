@@ -1,4 +1,5 @@
-/* Global Styles */
+/* Updated by Anthony Landa 11/20*/
+/* ================= GLOBAL ================= */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -12,12 +13,12 @@ body {
   padding: 40px 20px;
 }
 
-/* Main Blue Color */
+/* Brand color */
 :root {
   --main-blue: #004488;
 }
 
-/* --- Navigation Bar --- */
+/* ================= NAVBAR ================= */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -56,9 +57,79 @@ body {
   font-size: 18px;
 }
 
-/* --- Game Day Specials Section --- */
+/* Hamburger button (hidden on desktop) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background-color: var(--main-blue);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* ===== Navbar: Mobile ===== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+    flex-wrap: wrap; /* allows nav to drop below logo */
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 10px;
+    padding: 0;
+    border-top: 1px solid #ddd;
+  }
+
+  .nav-links a {
+    padding: 15px 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 18px;
+  }
+
+  .nav-links.nav-open {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .navbar .logo img {
+    height: 80px;
+  }
+
+  .nav-toggle.nav-open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .nav-toggle.nav-open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.nav-open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+/* ================= GAME DAY SPECIALS ================= */
 .specials-section {
   text-align: center;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .specials-section h2 {
@@ -67,39 +138,106 @@ body {
   margin-bottom: 40px;
 }
 
+/* Desktop / tablet layout: 3 across */
 .specials-grid {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 30px;
 }
 
 .special-item {
-  flex-basis: 30%;
+  flex: 1;
+  max-width: 360px;
+}
+
+.special-item a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 .special-item img {
+  display: block;
   width: 100%;
-  height: 250px;
+  height: 260px;              /* same height for all */
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.special-item a:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.18);
 }
 
 .special-item p {
   font-size: 20px;
   font-weight: bold;
   color: #555;
-  margin-top: 15px;
+  margin-top: 12px;
 }
 
-/* --- Visit Us Section --- */
+/* ===== Specials: Phones (<=768px) ===== */
+@media (max-width: 768px) {
+  .specials-section {
+    padding: 30px 16px;
+  }
+
+  .specials-section h2 {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+
+  .specials-grid {
+    flex-direction: column;    /* stack vertically */
+    align-items: center;
+    gap: 32px;
+  }
+
+  .special-item {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .special-item img {
+    height: 240px;
+  }
+
+  .special-item p {
+    font-size: 18px;
+    margin-top: 8px;
+  }
+}
+
+/* ===== Extra-small phones (<=425px) ===== */
+@media (max-width: 425px) {
+  .specials-section {
+    padding: 24px 12px 32px;
+  }
+
+  .specials-grid {
+    width: 100%;
+    align-items: stretch;     /* card fills width */
+  }
+
+  .special-item {
+    max-width: 100%;
+  }
+
+  .special-item img {
+    width: 100%;
+    height: 220px;
+  }
+}
+
+/* ================= VISIT US SECTION ================= */
 .visit-us-section {
   display: flex;
-  align-items: flex-start;   
+  align-items: flex-start;
   justify-content: space-between;
   gap: 40px;
 }
-
 
 .visit-us-info h2 {
   font-size: 36px;
@@ -122,6 +260,20 @@ body {
   font-size: 16px;
 }
 
+/* Stack Visit Us vertically on small screens */
+@media (max-width: 768px) {
+  .visit-us-section {
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 16px 40px;
+  }
+
+  .info-blocks {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
 .visit-us-map h3 {
   text-align: center;
   font-size: 22px;
@@ -134,7 +286,7 @@ body {
   border-radius: 8px;
 }
 
-/* --- Footer --- */
+/* ================= FOOTER ================= */
 footer {
   background-color: var(--main-blue);
   color: white;
@@ -157,6 +309,15 @@ footer {
   font-size: 16px;
 }
 
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+/* ================= MAP WRAPPER ================= */
 .map-wrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
@@ -174,78 +335,4 @@ footer {
   border: 0;
 }
 
-
-/* --- Mobile Navbar Responsive Styles --- */
-
-/* Hamburger button (hidden on desktop) */
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-.nav-toggle span {
-  display: block;
-  width: 26px;
-  height: 3px;
-  background-color: var(--main-blue);
-  transition: transform 0.25s ease, opacity 0.25s ease;
-}
-
-/* MOBILE VIEW */
-@media (max-width: 768px) {
-  
-  .navbar {
-    padding: 15px 20px;
-    flex-wrap: wrap; /* allows nav to drop below logo */
-  }
-
-  /* Hide large desktop gaps on mobile */
-  .nav-links {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 10px;
-    padding: 0;
-    border-top: 1px solid #ddd;
-  }
-
-  .nav-links a {
-    padding: 15px 10px;
-    border-bottom: 1px solid #eee;
-    font-size: 18px; /* larger and easier to tap */
-  }
-
-  /* When opened */
-  .nav-links.nav-open {
-    display: flex;
-  }
-
-  /* Show hamburger on mobile */
-  .nav-toggle {
-    display: flex;
-  }
-
-  /* Logo resize for mobile */
-  .navbar .logo img {
-    height: 80px;
-  }
-
-  /* Animate hamburger → X */
-  .nav-toggle.nav-open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-  .nav-toggle.nav-open span:nth-child(2) {
-    opacity: 0;
-  }
-  .nav-toggle.nav-open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-}
+/* Updated by Anthony Landa 11/20*/

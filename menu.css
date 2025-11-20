@@ -322,4 +322,31 @@
 .menu-page .dots {
   border-bottom-color: var(--main-blue) !important;
 }
+
+/* ===== ORDER ONLINE BUTTON (bottom of menu) ===== */
+.menu-page .menu-order-cta {
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+.menu-page .order-online-button {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--main-blue);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 18px;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background 0.2s ease, transform 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.menu-page .order-online-button:hover {
+  background: #0057aa;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
 /* Anthony Landa */
