@@ -173,3 +173,79 @@ footer {
   height: 100%;
   border: 0;
 }
+
+
+/* --- Mobile Navbar Responsive Styles --- */
+
+/* Hamburger button (hidden on desktop) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background-color: var(--main-blue);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+  
+  .navbar {
+    padding: 15px 20px;
+    flex-wrap: wrap; /* allows nav to drop below logo */
+  }
+
+  /* Hide large desktop gaps on mobile */
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 10px;
+    padding: 0;
+    border-top: 1px solid #ddd;
+  }
+
+  .nav-links a {
+    padding: 15px 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 18px; /* larger and easier to tap */
+  }
+
+  /* When opened */
+  .nav-links.nav-open {
+    display: flex;
+  }
+
+  /* Show hamburger on mobile */
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Logo resize for mobile */
+  .navbar .logo img {
+    height: 80px;
+  }
+
+  /* Animate hamburger → X */
+  .nav-toggle.nav-open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .nav-toggle.nav-open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.nav-open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
