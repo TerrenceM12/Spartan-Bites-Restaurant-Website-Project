@@ -18,20 +18,26 @@
 <body class="menu-page">
 
   <!-- ===================== NAVIGATION BAR ===================== -->
-  <header class="navbar">
-    <!-- Logo on left; links to homepage -->
-    <a href="Spartan_Bites.html" class="logo">
-      <img src="Spartan_Bites_Logo_Clear.png" alt="Spartan Bites Logo" />
-    </a>
+<header class="navbar">
+  <a href="index.html" class="logo">
+    <img src="Spartan_Bites_Logo_Clear.png" alt="Spartan Bites Logo">
+  </a>
 
-    <!-- Navigation links to other pages -->
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="menu.html">Menu</a>
-      <a href="orderonline.html">Order Now</a>
-      <a href="waitlist.html">Join Waitlist</a>
-    </nav>
-  </header>
+  <!-- MOBILE MENU BUTTON -->
+  <button class="nav-toggle" aria-label="Toggle navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="orderonline.html">Order Now</a>
+    <a href="waitlist.html">Join Waitlist</a>
+  </nav>
+</header>
+
 
   <!-- ===================== MAIN PAGE CONTENT ===================== -->
   <main class="container">
@@ -201,5 +207,16 @@
 
   </main>
 </body>
+
+<script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('nav-open');
+    navToggle.classList.toggle('nav-open');
+  });
+</script>
+
 </html>
 <!--Anthony Landa-->
